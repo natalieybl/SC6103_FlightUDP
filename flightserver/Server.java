@@ -35,7 +35,8 @@ public class Server {
 
     public static void main(String[] args) {
         
-        try (DatagramSocket serverSocket = new DatagramSocket(SERVER_PORT, InetAddress.getByName("10.91.163.199"))) {
+        //try (DatagramSocket serverSocket = new DatagramSocket(SERVER_PORT, InetAddress.getByName("10.91.163.199"))) {
+        try (DatagramSocket serverSocket = new DatagramSocket(SERVER_PORT)) {
             byte[] receiveBuffer = new byte[1024];
             System.out.println("\nServer is running...\n");
 
