@@ -43,9 +43,8 @@ public class Server {
 
     public static void main(String[] args) {
 
-        // try (DatagramSocket serverSocket = new DatagramSocket(SERVER_PORT,
-        // InetAddress.getByName("10.91.61.102"))) {
-        try (DatagramSocket serverSocket = new DatagramSocket(SERVER_PORT)) {
+        try (DatagramSocket serverSocket = new DatagramSocket(SERVER_PORT, InetAddress.getByName("10.91.186.29"))) {
+            // try (DatagramSocket serverSocket = new DatagramSocket(SERVER_PORT)) {
             byte[] receiveBuffer = new byte[1024];
             System.out.println("\nServer is running...\n");
 
@@ -81,8 +80,8 @@ public class Server {
                 long currentTime = System.currentTimeMillis();
                 if (processedRequests.containsKey(requestID)) {
                     CachedResponse cachedResponse = processedRequests.get(requestID);
-                    if (currentTime - cachedResponse.timestamp < 3000) {
-                        // 在 3 秒內，使用上次的回應結果
+                    if (currentTime - cachedResponse.timestamp < 15000) {
+                        // 在 15 秒內，使用上次的回應結果
                         System.out.println("Returning cached response for request: " + requestID + "\n");
                         sendResponse(serverSocket, cachedResponse.data, clientAddress, clientPort);
                         continue;

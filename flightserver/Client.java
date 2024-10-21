@@ -8,9 +8,9 @@ import java.util.InputMismatchException;
 import java.nio.charset.StandardCharsets;
 
 public class Client {
-    private static final String SERVER_ADDRESS = "localhost";
-    // private static final String SERVER_ADDRESS = "10.91.61.102";
-    // 10.91.61.102
+    // private static final String SERVER_ADDRESS = "localhost";
+    private static final String SERVER_ADDRESS = "10.91.186.29";
+
     private static final int SERVER_PORT = 12345;
     private static final int MAX_RETRIES = 5;
 
